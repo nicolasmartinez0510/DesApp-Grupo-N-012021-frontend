@@ -1,51 +1,67 @@
-import React, {useEffect} from "react";
-import {Formik} from "formik";
+import React, { useEffect } from "react";
+import { Formik } from "formik";
 import * as Yup from 'yup'
-import {Link,useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import LenguageSelector from "./LenguajeSelector";
+
 
 export default function RegisterForm() {
     const history = useHistory();
-    
+    const [t, i18n] = useTranslation("global")
+
     useEffect(() => {
         document.body.style = "background-image: var(--img-background-home);" +
             "background-size: 85rem;"
     })
 
+    const changeLanguage = leng => {
+        i18n.changeLanguage(leng)
+    }
+
+
 
     return (
         <div>
+            <LenguageSelector
+                idiomSelected={t("idiom")}
+                changeToEnglish={() => changeLanguage("en")}
+                changeToSpanish={() => changeLanguage("es")}
+            />
             <Formik
-                initialValues={{email: '', username: '', password: '', passwordConfirmation: ''}}
-                onSubmit={(values, {setSubmitting}) => {
-                //     setTimeout(() => {
-                //         const {username, email, password} = values
-                //         Api.register(username, email, password)
-                //             .then(response => {
-                //                     if (response.status>=200 && response.status<300) {
-                //                         history.push(`/successful/${username}`)
-                //                     }
-                //                 }
-                //             )
-                //             .catch(() => "Boom")
-                //         setSubmitting(false);
-                //     }, 500);
-                 }}
+                initialValues={{ email: '', username: '', platform: '', password: '', passwordConfirmation: '' }}
+                onSubmit={(values, { setSubmitting }) => {
+                    //     setTimeout(() => {
+                    //         const {username, email, password} = values
+                    //         Api.register(username, email, password)
+                    //             .then(response => {
+                    //                     if (response.status>=200 && response.status<300) {
+                    //                         history.push(`/successful/${username}`)
+                    //                     }
+                    //                 }
+                    //             )
+                    //             .catch(() => "Boom")
+                    //         setSubmitting(false);
+                    //     }, 500);
+                }}
                 validationSchema={Yup.object().shape({
                     email: Yup.string()
-                        .email('Please, insert a valid email')
-                        .required("Email is required."),
+                        .email(t("validations.email.valid"))
+                        .required(t("validations.email.required")),
                     username: Yup.string()
-                        .required("Username is required.")
-                        .min(6, 'Username is too short - should be 6 chars minimum.')
-                        .matches(/^[a-z][a-z0-9]*(?:_[A-Za-z0-9]+)*$/, 'Username must start with a letter and cannot have capitalize letters'),
+                        .required(t("validations.username.required"))
+                        .min(6, t("validations.username.min"))
+                        .matches(/^[a-z][a-z0-9]*(?:_[A-Za-z0-9]+)*$/, t("validations.username.matches")),
+                    platform: Yup.string()
+                        .required(t("validations.platform.required")),
                     password: Yup.string()
-                        .required("No password provided.")
-                        .min(8, "Password is too short - should be 8 chars minimum.")
-                        .max(256, 'Password cannot have more than 256 characters')
-                        .matches(/(?=.*[0-9])/, "Password must contain a number."),
+                        .required(t("validations.password.required"))
+                        .min(8, t("validations.password.min"))
+                        .max(256, t("validations.password.max"))
+                        .matches(/(?=.*[0-9])/, t("validations.password.matches")),
                     passwordConfirmation: Yup.string()
-                        .required('Password confirmation is required')
-                        .oneOf([Yup.ref('password'), null], 'Password confirmation does not match')
+                        .required(t("validations.passwordConfirm.required"))
+                        .oneOf([Yup.ref('password'), null], t("validations.passwordConfirm.matches"))
                 })}
             >
                 {props => {
@@ -62,12 +78,12 @@ export default function RegisterForm() {
                         <form className="formulario card m-5 p-3 bg-light " onSubmit={handleSubmit}>
                             <div className='bg-dark rounded-lg mb-3'>
                             </div>
-                            <h1 className='text-center font-italic font-weight-bold'>Register now</h1>
-                            <div className="form-group">
+                            <h1 className='text-center font-italic font-weight-bold'>{t("register.hello")}</h1>
+                            <div className="form-group pt-2">
                                 <input
                                     name="email"
                                     type="email"
-                                    placeholder="Enter your email"
+                                    placeholder={t("register.email")}
                                     value={values.email}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -77,11 +93,35 @@ export default function RegisterForm() {
                                     <div className="input-feedback text-danger">{errors.email}</div>
                                 )}
                             </div>
-                            <div className="form-group">
+
+                            <div className="form-group pt-2">
+                                <select
+                                    className='form-control'
+                                    name="platform"
+                                    type="text"
+                                    value={values.platform}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    style={{ display: 'block' }}
+                                    label={t("register.platform")}
+                                >   
+                                    <option value="" label={t("register.platform")} />
+                                    <option value="NETFLIX" label="Netflix" />
+                                    <option value="AMAZON" label="Amazon" />
+                                    <option value="DISNEY" label="Disney" />
+                                    <option value="PLEX" label="Plex" />
+
+                                </select>
+                                {errors.password && touched.password && (
+                                    <div className="input-feedback text-danger">{errors.platform}</div>
+                                )}
+                            </div>
+
+                            <div className="form-group pt-2">
                                 <input
                                     name="username"
                                     type="text"
-                                    placeholder="Enter your new username"
+                                    placeholder={t("register.username")}
                                     value={values.username}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -91,11 +131,11 @@ export default function RegisterForm() {
                                     <div className="input-feedback text-danger">{errors.username}</div>
                                 )}
                             </div>
-                            <div className="form-group">
+                            <div className="form-group pt-2">
                                 <input
                                     name="password"
                                     type="password"
-                                    placeholder="Enter your password"
+                                    placeholder={t("register.password")}
                                     value={values.password}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -105,11 +145,11 @@ export default function RegisterForm() {
                                     <div className="input-feedback text-danger">{errors.password}</div>
                                 )}
                             </div>
-                            <div className="form-group">
+                            <div className="form-group pt-2">
                                 <input
                                     name="passwordConfirmation"
                                     type="password"
-                                    placeholder="Confirm password"
+                                    placeholder={t("register.passwordConfirm")}
                                     value={values.passwordConfirmation}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -119,10 +159,10 @@ export default function RegisterForm() {
                                     <div className="input-feedback text-danger">{errors.passwordConfirmation}</div>
                                 )}
                             </div>
-                            <div className="separador"/>
-                            <Link to='/login'> Registered Yet?</Link>
+                            <div className="separador" />
+                            <Link to='/login'> {t("register.register")}</Link>
                             <button type="submit" className="btn btn-info m-4" disabled={isSubmitting}>
-                                Register
+                                {t("register.enter")}
                             </button>
                         </form>
                     );

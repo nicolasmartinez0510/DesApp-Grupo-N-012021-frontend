@@ -1,17 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 // import * as Api from "../ApiRest";
+import { useTranslation } from 'react-i18next';
+import LenguageSelector from "./LenguajeSelector";
+
 
 export default function LogIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const history = useHistory();
+    const [t,i18n] = useTranslation("global")
 
     useEffect(() => {
         document.body.style = "background-image: var(--img-background-home);" +
             "background-size: 85rem;"
     })
+
+    const changeLanguage = leng => {
+        i18n.changeLanguage(leng)
+    }
+
 
     const handleSubmit = (ev) => {
         ev.preventDefault();
@@ -30,38 +39,43 @@ export default function LogIn() {
 
     return (
         <>
+            <LenguageSelector
+                idiomSelected={t("idiom")} 
+                changeToEnglish={() => changeLanguage("en")} 
+                changeToSpanish={() => changeLanguage("es")}
+            />
             <form className="card rounded-lg bg-light col-auto m-5 p-3 " onSubmit={handleSubmit}>
                 <div className='bg-dark rounded-lg mb-3'>
                 </div>
-                <h1 className='text-center font-italic font-weight-bold'>Log in</h1>
+                <h1 className='text-center font-italic font-weight-bold'>{t("login.hello")}</h1>
                 <div>
-                    <label htmlFor="username" className='font-weight-bolder'>Username</label>
+                    <label htmlFor="username" className='font-weight-bolder'>{t("login.username")}</label>
                     <input type="text"
                         value={username}
                         className="form-control"
                         autoComplete="current-username"
-                        placeholder="Username"
+                        placeholder={t("login.username")}
                         onChange={(ev) => {
                             setUsername(ev.target.value);
                             setError('')
                         }} />
                 </div>
                 <div>
-                    <label htmlFor="password" className='font-weight-bolder mt-4'>Password</label>
+                    <label htmlFor="password" className='font-weight-bolder mt-4'>{t("login.password")}</label>
                     <input type="password"
                         value={password}
                         className="form-control mb-4"
-                        placeholder="Password"
+                        placeholder={t("login.password")}
                         autoComplete="current-password"
                         onChange={(ev) => {
                             setPassword(ev.target.value);
                             setError('')
                         }} />
                 </div>
-                <Link to='/'> Unregister Yet?</Link>
+                <Link to='/'> {t("login.unregister")}</Link>
                 {error && <small className="font-weight-bolder alert alert-danger">{error}</small>}
                 <div className="text-center">
-                    <button className="btn btn-info m-3" onSubmit={handleSubmit}> Log in </button>
+                    <button className="btn btn-info m-3" onSubmit={handleSubmit}> {t("login.enter")} </button>
                 </div>
             </form>
         </>

@@ -1,0 +1,47 @@
+{
+    "idiom": "English",
+
+    "login":{
+        "hello":"Please, sig in",
+        "password":"Password",
+        "username":"Username",
+        "unregister": "Unregister yet?",
+        "enter": "LogIn"
+    },
+
+    "register":{
+        "hello": "Registration",
+        "email": "Enter your email",
+        "password":"Enter your password",
+        "username":"Enter yout username",
+        "passwordConfirm": "Confirm your password",
+        "register": "Registered yet?",
+        "enter": "Register",
+        "platform": "Enter a platform"
+    },
+
+    "validations": {
+        "email":{
+            "valid": "Please, insert a valid email",
+            "required": "Email is required."
+        },
+        "username": {
+            "required": "Username is required.",
+            "min": "Username is too short - should be 6 chars minimum.",
+            "matches": "Username must start with a letter and cannot have capitalize letters"
+        },
+        "password":{
+            "required": "No password provided.",
+            "min": "Password is too short - should be 8 chars minimum.",
+            "max": "Password cannot have more than 256 characters",
+            "matches": "Password must contain a number."
+        },
+        "passwordConfirm":{
+            "required": "Password confirmation is required",
+            "matches": "Password confirmation does not match."
+        },
+        "platform": {
+            "required": "Platform is required."
+        }
+    }
+}
