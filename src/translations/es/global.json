@@ -1,5 +1,7 @@
 {
     "idiom": "Español",
+    "english": "Ingles",
+    "spanish": "Español",
     "login": {
         "hello": "Por favor, inicie sesion",
         "password": "Contraseña",

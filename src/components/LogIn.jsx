@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-// import * as Api from "../ApiRest";
+import * as Api from "./ApiRest";
 import { useTranslation } from 'react-i18next';
 import LenguageSelector from "./LenguajeSelector";
 
@@ -17,32 +17,23 @@ export default function LogIn() {
             "background-size: 85rem;"
     })
 
-    const changeLanguage = leng => {
-        i18n.changeLanguage(leng)
-    }
-
-
+  
     const handleSubmit = (ev) => {
         ev.preventDefault();
-        // Api.login(username, password)
-        //     .then(response => {
-        //         if (response.status === 200) {
-        //             localStorage.setItem('userid', response.data.id)
-        //             localStorage.setItem('userName', response.data.userName)
-        //             localStorage.setItem('email', response.data.email)
-        //             localStorage.setItem('password', response.data.password)
-        //             history.push('/home')
-        //         }
-        //     })
-        //     .catch(() => setError("Invalid username or password. Please, try again"))
+        Api.login(username, password)
+            .then(response => {
+                if (response.status === 200) {
+                  console.log(response.data)
+                }
+            })
+            .catch(() => setError("Invalid username or password. Please, try again"))
     }
 
     return (
         <>
             <LenguageSelector
-                idiomSelected={t("idiom")} 
-                changeToEnglish={() => changeLanguage("en")} 
-                changeToSpanish={() => changeLanguage("es")}
+               i18n={i18n}
+                t={t}
             />
             <form className="card rounded-lg bg-light col-auto m-5 p-3 " onSubmit={handleSubmit}>
                 <div className='bg-dark rounded-lg mb-3'>

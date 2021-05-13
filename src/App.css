@@ -5,10 +5,6 @@
   grid-template-columns: repeat(auto-fit,30rem)
 }
 
-.separador{
-  padding: 10px;
-}
-
 .lenguaje_selector{
   padding-left: 74rem;
   padding-top: 10px;

@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { Formik } from "formik";
+import { Formik, FormikProvider } from "formik";
 import * as Yup from 'yup'
 import { Link, useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LenguageSelector from "./LenguajeSelector";
+import * as Api from './ApiRest'
 
 
 export default function RegisterForm() {
@@ -15,34 +16,28 @@ export default function RegisterForm() {
             "background-size: 85rem;"
     })
 
-    const changeLanguage = leng => {
-        i18n.changeLanguage(leng)
-    }
-
-
-
+    
     return (
         <div>
             <LenguageSelector
-                idiomSelected={t("idiom")}
-                changeToEnglish={() => changeLanguage("en")}
-                changeToSpanish={() => changeLanguage("es")}
+                i18n={i18n}
+                t={t}
             />
             <Formik
                 initialValues={{ email: '', username: '', platform: '', password: '', passwordConfirmation: '' }}
                 onSubmit={(values, { setSubmitting }) => {
-                    //     setTimeout(() => {
-                    //         const {username, email, password} = values
-                    //         Api.register(username, email, password)
-                    //             .then(response => {
-                    //                     if (response.status>=200 && response.status<300) {
-                    //                         history.push(`/successful/${username}`)
-                    //                     }
-                    //                 }
-                    //             )
-                    //             .catch(() => "Boom")
-                    //         setSubmitting(false);
-                    //     }, 500);
+                        setTimeout(() => {
+                            const {username, platform ,email, password} = values
+                            Api.register(username, platform ,email, password)
+                                .then(response => {
+                                        if (response.status>=200 && response.status<300) {
+                                            console.log(response.data)
+                                        }
+                                    }
+                                )
+                                .catch(() => "Boom")
+                            setSubmitting(false);
+                        }, 500);
                 }}
                 validationSchema={Yup.object().shape({
                     email: Yup.string()
@@ -159,7 +154,7 @@ export default function RegisterForm() {
                                     <div className="input-feedback text-danger">{errors.passwordConfirmation}</div>
                                 )}
                             </div>
-                            <div className="separador" />
+                            <div className="pt-10" />
                             <Link to='/login'> {t("register.register")}</Link>
                             <button type="submit" className="btn btn-info m-4" disabled={isSubmitting}>
                                 {t("register.enter")}

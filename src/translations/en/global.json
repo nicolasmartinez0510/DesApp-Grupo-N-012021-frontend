@@ -1,6 +1,7 @@
 {
     "idiom": "English",
-
+    "english": "English",
+    "spanish": "Spanish",
     "login":{
         "hello":"Please, sig in",
         "password":"Password",
