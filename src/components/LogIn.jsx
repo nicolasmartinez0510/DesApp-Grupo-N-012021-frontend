@@ -30,7 +30,7 @@ export default function LogIn() {
     }
 
     return (
-        <>
+        <div>
             <LenguageSelector
                i18n={i18n}
                 t={t}
@@ -69,7 +69,7 @@ export default function LogIn() {
                     <button className="btn btn-info m-3" onSubmit={handleSubmit}> {t("login.enter")} </button>
                 </div>
             </form>
-        </>
+        </div>
     );
 }
 

@@ -1,11 +1,4 @@
-.container{
-  justify-content: center;
-  display: grid;
-  padding-top: 7rem;
-  grid-template-columns: repeat(auto-fit,30rem)
-}
-
 .lenguaje_selector{
-  padding-left: 74rem;
-  padding-top: 10px;
+  display: grid;
+  justify-content: right;
 }
