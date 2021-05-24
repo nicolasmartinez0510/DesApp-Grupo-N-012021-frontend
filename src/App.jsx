@@ -9,6 +9,7 @@ import {
 import LogIn from "./components/LogIn";
 import RegisterForm from './components/RegisterForm';
 import NotFound from './components/NotFound'
+import Home from './components/Home';
 
 export default function App() {
     return (
@@ -16,6 +17,7 @@ export default function App() {
             <Switch>
                 <Route path="/login" component={LogIn}/>
                 <Route exact path="/" component={RegisterForm}/>
+                <Route path="/home" component={Home}/>
                 <Route path="*" component={NotFound} />
             </Switch>
         </Router>

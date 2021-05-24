@@ -23,7 +23,7 @@ export default function LogIn() {
         Api.login(username, password)
             .then(response => {
                 if (response.status === 200) {
-                  console.log(response.data)
+                  history.push('/home')
                 }
             })
             .catch(() => setError("Invalid username or password. Please, try again"))
