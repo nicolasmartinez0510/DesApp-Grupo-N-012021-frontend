@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'https://vast-brushla-new-endpoi-ovtxj5.herokuapp.com/api/user'
+const url = 'https://desapp-grupo-n-012021-backend.herokuapp.com/api/user'
 
 export const register = async (username,platform, email, password) => {
     const endpoint = '/register';
@@ -15,7 +15,7 @@ export const register = async (username,platform, email, password) => {
 export const login = async(username,password) => {
     const endpoint = '/login'
     return axios.post(url + endpoint, {
-        username: username,
-        password: password
+        password: password,
+        username: username
     })
 }

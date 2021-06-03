@@ -10,20 +10,22 @@ export default function LogIn() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const history = useHistory();
-    const [t,i18n] = useTranslation("global")
+    const [t, i18n] = useTranslation("global")
 
     useEffect(() => {
         document.body.style = "background-image: var(--img-background-home);" +
             "background-size: 85rem;"
     })
 
-  
+
     const handleSubmit = (ev) => {
         ev.preventDefault();
         Api.login(username, password)
             .then(response => {
                 if (response.status === 200) {
-                  history.push('/home')
+                    localStorage.setItem('auth', response.headers.authentication)
+                    localStorage.setItem('apiKey', response.headers.authorization)
+                    history.push('/user')
                 }
             })
             .catch(() => setError("Invalid username or password. Please, try again"))
@@ -32,7 +34,7 @@ export default function LogIn() {
     return (
         <div>
             <LenguageSelector
-               i18n={i18n}
+                i18n={i18n}
                 t={t}
             />
             <form className="card rounded-lg bg-light col-auto m-5 p-3 " onSubmit={handleSubmit}>

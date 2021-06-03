@@ -23,7 +23,7 @@ export default function Home() {
                 <label>Api key</label>
                 <input type={passwordShow}
                     readOnly
-                    defaultValue="lksadmnlkasnd4574395734"
+                    defaultValue={localStorage.getItem('apiKey')}
                     className="form-control"
                 />
                 <div className="p-2" />

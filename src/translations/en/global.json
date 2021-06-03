@@ -3,7 +3,7 @@
     "english": "English",
     "spanish": "Spanish",
     "login":{
-        "hello":"Please, sig in",
+        "hello":"Please, sign in",
         "password":"Password",
         "username":"Username",
         "unregister": "Unregister yet?",
