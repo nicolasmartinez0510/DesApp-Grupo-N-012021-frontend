@@ -1,0 +1,17 @@
+------------------------------------------------------------------------------------
+TAG ENTREGA 2.0
+------------------------------------------------------------------------------------
+NEW FEATURES:
+ * log in space for already registered users.
+ * register space for new users.
+ * home space for view user data.
+ * internationalization (ES-US).
+ * automatics deploys of frontend with Heroku.
+ * build frontend.
+ * data validations.
+
+NOTES:
+* -
+
+KNOWN ISSUES:
+* -
