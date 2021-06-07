@@ -7,7 +7,8 @@
         "password":"Password",
         "username":"Username",
         "unregister": "Unregistered yet?",
-        "enter": "LogIn"
+        "enter": "LogIn",
+        "loginError": "Invalid username or password. Please, try again"
     },
 
     "register":{
