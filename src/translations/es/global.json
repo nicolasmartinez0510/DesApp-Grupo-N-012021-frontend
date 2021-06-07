@@ -42,5 +42,12 @@
         "platform": {
             "required": "La plataforma es requerida"
         }
+    },
+    "home":{
+        "logout":"Cerrar Sesion",
+        "showme":"Ver",
+        "apikey":"Tu Api key",
+        "mail":"Tu email",
+        "hello":"Hola"
     }
 }

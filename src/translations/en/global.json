@@ -6,7 +6,7 @@
         "hello":"Please, sign in",
         "password":"Password",
         "username":"Username",
-        "unregister": "Unregister yet?",
+        "unregister": "Unregistered yet?",
         "enter": "LogIn"
     },
 
@@ -16,7 +16,7 @@
         "password":"Enter your password",
         "username":"Enter yout username",
         "passwordConfirm": "Confirm your password",
-        "register": "Registered yet?",
+        "register": "Already registered?",
         "enter": "Register",
         "platform": "Enter a platform"
     },
@@ -44,5 +44,12 @@
         "platform": {
             "required": "Platform is required."
         }
+    },
+    "home":{
+        "logout":"Logout",
+        "showme":"Show me",
+        "apikey":"Your Api key",
+        "mail":"Your mail",
+        "hello":"Hello"
     }
 }

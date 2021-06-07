@@ -5,6 +5,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Redirect
 } from "react-router-dom";
 import LogIn from "./components/LogIn";
 import RegisterForm from './components/RegisterForm';
@@ -15,9 +16,12 @@ export default function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/login" component={LogIn}/>
-                <Route exact path="/" component={RegisterForm}/>
-                <Route exact path="/user" component={Home}/>
+                <Route exact path="/">
+                    <Redirect to="/user/login"/>
+                </Route>
+                <Route path="/user/login" component={LogIn}/>
+                <Route path="/user/register" component={RegisterForm}/>
+                <Route path="/user/:username" component={Home}/>
                 <Route path="*" component={NotFound} />
             </Switch>
         </Router>

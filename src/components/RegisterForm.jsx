@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Formik, FormikProvider } from "formik";
+import { Formik } from "formik";
 import * as Yup from 'yup'
 import { Link, useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -31,7 +31,7 @@ export default function RegisterForm() {
                             Api.register(username, platform ,email, password)
                                 .then(response => {
                                         if (response.status>=200 && response.status<300) {
-                                            history.push('/login')
+                                            history.push('/user/login')
                                         }
                                     }
                                 )
@@ -154,8 +154,8 @@ export default function RegisterForm() {
                                     <div className="input-feedback text-danger">{errors.passwordConfirmation}</div>
                                 )}
                             </div>
-                            <div className="pt-10" />
-                            <Link to='/login'> {t("register.register")}</Link>
+                            <div className="p-2" />
+                            <Link to='/user/login'> {t("register.register")}</Link>
                             <button type="submit" className="btn btn-info m-4" disabled={isSubmitting}>
                                 {t("register.enter")}
                             </button>

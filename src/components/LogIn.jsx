@@ -25,10 +25,25 @@ export default function LogIn() {
                 if (response.status === 200) {
                     localStorage.setItem('auth', response.headers.authentication)
                     localStorage.setItem('apiKey', response.headers.authorization)
-                    history.push('/user')
+                    handleMe(ev)
                 }
             })
-            .catch(() => setError("Invalid username or password. Please, try again"))
+            .catch(() => setError(t("login.loginError")))
+    }
+
+    const handleMe = (ev) => {
+        ev.preventDefault();
+        Api.me()
+            .then(response => {
+                if(response.status === 200){
+                   let location = {
+                    pathname:`/user/${response.data.username}`,
+                    state:{ userData: response.data }
+                  }
+                   history.push(location) 
+                }
+            })
+            .catch(() => setError(t("login.loginError")))
     }
 
     return (
@@ -65,7 +80,7 @@ export default function LogIn() {
                             setError('')
                         }} />
                 </div>
-                <Link to='/'> {t("login.unregister")}</Link>
+                <Link to='/user/register'> {t("login.unregister")}</Link>
                 {error && <small className="font-weight-bolder alert alert-danger">{error}</small>}
                 <div className="text-center">
                     <button className="btn btn-info m-3" onSubmit={handleSubmit}> {t("login.enter")} </button>

@@ -19,3 +19,8 @@ export const login = async(username,password) => {
         username: username
     })
 }
+
+export const me = async() => {
+    const endpoint = '/me'
+    return axios.get(url + endpoint, { headers : { Authentication: localStorage.getItem('auth') } });
+}
