@@ -1,0 +1,54 @@
+{
+    "idiom": "Español",
+    "english": "Ingles",
+    "spanish": "Español",
+    "login": {
+        "hello": "Por favor, inicie sesion",
+        "password": "Contraseña",
+        "username": "Usuario",
+        "unregister": "Sin registrarse todavia?",
+        "enter": "LogIn",
+        "loginError":"Usuario o contraseña invalidos. Intente de nuevo"
+    },
+    "register": {
+        "hello": "Registracion",
+        "email": "Ingrese su email",
+        "password": "Ingrese su contraseña",
+        "username": "Ingrese su usuario",
+        "passwordConfirm": "Repita su contraseña",
+        "register": "Ya tiene una cuenta?",
+        "enter": "Registrarse",
+        "platform": "Ingrese una plataforma"
+    },
+    "validations": {
+        "email": {
+            "valid": "Inserte un mail valido",
+            "required": "Inserte un mail."
+        },
+        "username": {
+            "required": "Inserte un nombre de usuario",
+            "min": "El nombre de usuario debe contener 6 caracteres como minimo",
+            "matches": "El nombre de usuario debe comenzar con una letra y no debe poseer mayusculas"
+        },
+        "password": {
+            "required": "Inserte una contraseña",
+            "min": "Su contraseña es demasiado corta",
+            "max": "Su contraseña excedio los 256 caracteres",
+            "matches": "Su contraseña debe contener un numero"
+        },
+        "passwordConfirm": {
+            "required": "Confirme su contraseña",
+            "matches": "Las contraseñas no coinciden"
+        },
+        "platform": {
+            "required": "La plataforma es requerida"
+        }
+    },
+    "home":{
+        "logout":"Cerrar Sesion",
+        "showme":"Ver",
+        "apikey":"Tu Api key",
+        "mail":"Tu email",
+        "hello":"Hola"
+    }
+}
