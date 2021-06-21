@@ -18,7 +18,8 @@
         "passwordConfirm": "Repita su contraseña",
         "register": "Ya tiene una cuenta?",
         "enter": "Registrarse",
-        "platform": "Ingrese una plataforma"
+        "platform": "Ingrese una plataforma",
+        "registerError": "Email, usuario o plataforma ya registrados."
     },
     "validations": {
         "email": {

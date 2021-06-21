@@ -19,7 +19,8 @@
         "passwordConfirm": "Confirm your password",
         "register": "Already registered?",
         "enter": "Register",
-        "platform": "Enter a platform"
+        "platform": "Enter a platform",
+        "registerError": "Email, platform or username already registered."
     },
 
     "validations": {
