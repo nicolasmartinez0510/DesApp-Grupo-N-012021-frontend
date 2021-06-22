@@ -50,6 +50,18 @@
         "showme":"Ver",
         "apikey":"Tu Api key",
         "mail":"Tu email",
-        "hello":"Hola"
+        "hello":"Hola username de platform",
+        "notify":"Notificarme"
+    },
+    "notifier":{
+        "title":"Notificarme nuevas reseñas de:",
+        "content":"Titulo identificador del contenido",
+        "link":"Enlace que desea que se ejecute para ser notificado",
+        "phcontent":"Title ID",
+        "phlink":"Enlace",
+        "close":"Cerrar",
+        "save":"Suscribirse",
+        "good":"Te has suscripto exitosamente!",
+        "bad":"Algo ha salido mal, intenta nuevamente"
     }
 }

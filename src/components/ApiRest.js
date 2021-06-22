@@ -2,25 +2,44 @@ import axios from 'axios'
 
 const url = 'http://localhost:8081/api/user'
 
-export const register = async (username,platform, email, password) => {
+export const register = async (username, platform, email, password) => {
     const endpoint = '/register';
-    return axios.post(url + endpoint, {
+    const data = {
         email: email,
         username: username,
         platform: platform,
         password: password
-    });
+    }
+    return axios.post(url + endpoint, data);
 }
 
-export const login = async(username,password) => {
+export const login = async (username, password) => {
     const endpoint = '/login'
-    return axios.post(url + endpoint, {
+    const data = {
         password: password,
         username: username
-    })
+    }
+    return axios.post(url + endpoint, data)
 }
 
-export const me = async() => {
+export const me = async () => {
     const endpoint = '/me'
-    return axios.get(url + endpoint, { headers : { Authentication: localStorage.getItem('auth') } });
+    const header = { headers: { Authentication: localStorage.getItem('auth') } }
+    return axios.get(url + endpoint, header);
+}
+
+export const subscribe = async (titleId, urlToRedirect) => {
+    const endpoint = '/subscribe'
+    const header = {
+        headers: {
+            Authorization: localStorage.getItem('apiKey'),
+            Authentication: localStorage.getItem('auth')
+        }
+    }
+    const data =
+    {
+        titleId: titleId,
+        url: urlToRedirect
+    }
+    return axios.post(url + endpoint, data, header)
 }

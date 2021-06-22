@@ -11,6 +11,7 @@ import LogIn from "./components/LogIn";
 import RegisterForm from './components/RegisterForm';
 import NotFound from './components/NotFound'
 import Home from './components/Home';
+import Notifier from './components/Notifier';
 
 export default function App() {
     return (

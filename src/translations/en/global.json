@@ -52,6 +52,18 @@
         "showme":"Show me",
         "apikey":"Your Api key",
         "mail":"Your mail",
-        "hello":"Hello"
+        "hello":"Hello username from platform",
+        "notify":"Notify me"
+    },
+    "notifier":{
+        "title":"Notify me new review's of:",
+        "content":"Content title id",
+        "link":"Url to be executed to notify me",
+        "phcontent":"Title id",
+        "phlink":"Url",
+        "close":"Close",
+        "save":"Subscribe",
+        "good":"You have successfully subscribed!",
+        "bad":"Something has gone wrong, try again"
     }
 }
