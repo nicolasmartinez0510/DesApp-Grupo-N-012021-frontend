@@ -53,7 +53,8 @@
         "apikey":"Your Api key",
         "mail":"Your mail",
         "hello":"Hello username from platform",
-        "notify":"Notify me"
+        "notify":"Notify me...",
+        "metrics":"Usage metrics"
     },
     "notifier":{
         "title":"Notify me new review's of:",
@@ -65,5 +66,14 @@
         "save":"Subscribe",
         "good":"You have successfully subscribed!",
         "bad":"Something has gone wrong, try again"
+    },
+    "metrics":{
+        "title": "Metrics",
+        "value":"Amount",
+        "addReview": "Reviews added",
+        "rate": "Ratings",
+        "report": "Reports",
+        "search":"Reviews searched",
+        "contentSearch":"Content Search"
     }
 }

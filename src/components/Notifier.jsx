@@ -1,17 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap'
 import * as Api from "./ApiRest";
 import { useTranslation } from 'react-i18next';
-
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-        if ((new Date().getTime() - start) > milliseconds) {
-            break;
-        }
-    }
-}
-
 
 export default function NotifierModal({ showModal, closeModal }) {
     const [t, i18n] = useTranslation("global");
@@ -32,7 +22,7 @@ export default function NotifierModal({ showModal, closeModal }) {
             .then(response => {
                 if (response.status === 200) {
                     setConfirmation(t("notifier.good"))
-                    setTimeout(() => { closeModal(); setConfirmation('') }, 2500)
+                    setTimeout(() => { setConfirmation('') }, 2500)
                 }
             })
             .catch(() => {
@@ -80,7 +70,7 @@ export default function NotifierModal({ showModal, closeModal }) {
                     <Button variant="secondary" onClick={handleClose}>
                         {t("notifier.close")}
                     </Button>
-                    <Button variant="primary" onClick={handleSubscribe}>
+                    <Button variant="primary" type="submit" onClick={handleSubscribe}>
                         {t("notifier.save")}
                     </Button>
                 </Modal.Footer>

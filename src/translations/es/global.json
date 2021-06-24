@@ -51,7 +51,8 @@
         "apikey":"Tu Api key",
         "mail":"Tu email",
         "hello":"Hola username de platform",
-        "notify":"Notificarme"
+        "notify":"Notificarme...",
+        "metrics":"Metricas de uso"
     },
     "notifier":{
         "title":"Notificarme nuevas reseñas de:",
@@ -63,5 +64,15 @@
         "save":"Suscribirse",
         "good":"Te has suscripto exitosamente!",
         "bad":"Algo ha salido mal, intenta nuevamente"
+    },
+    "metrics":{
+        "title":"Metricas",
+        "value":"Cantidad",
+        "addReview":"Reviews Agregadas",
+        "rate":"Calificaciones",
+        "report":"Reportes",
+        "search":"Busquedas de reviews",
+        "contentSearch":"Busquedas de contenidos"
     }
+
 }
