@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://localhost:8081/api/user'
+const url = 'https://vast-citadel-05888.herokuapp.com/api/user'
 
 export const register = async (username, platform, email, password) => {
     const endpoint = '/register';

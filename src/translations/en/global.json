@@ -45,6 +45,15 @@
         },
         "platform": {
             "required": "Platform is required."
+        },
+        "notifier":{
+            "titleId":{
+                "required":"Title Id is required"
+            },
+            "url":{
+                "required":"URL is required",
+                "matches":"Invalid URl"
+            }
         }
     },
     "home":{

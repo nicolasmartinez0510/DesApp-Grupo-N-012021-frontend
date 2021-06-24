@@ -43,6 +43,15 @@
         },
         "platform": {
             "required": "La plataforma es requerida"
+        },
+        "notifier":{
+            "titleId":{
+                "required":"El titulo identificador es requerido"
+            },
+            "url":{
+                "required":"El enlace es requerido",
+                "matches":"Escriba un enlace valido"
+            }
         }
     },
     "home":{
