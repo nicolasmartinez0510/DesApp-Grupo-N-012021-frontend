@@ -19,7 +19,8 @@
         "passwordConfirm": "Confirm your password",
         "register": "Already registered?",
         "enter": "Register",
-        "platform": "Enter a platform"
+        "platform": "Enter a platform",
+        "registerError": "Email, platform or username already registered."
     },
 
     "validations": {
@@ -44,6 +45,15 @@
         },
         "platform": {
             "required": "Platform is required."
+        },
+        "notifier":{
+            "titleId":{
+                "required":"Title Id is required"
+            },
+            "url":{
+                "required":"URL is required",
+                "matches":"Invalid URl"
+            }
         }
     },
     "home":{
@@ -51,6 +61,28 @@
         "showme":"Show me",
         "apikey":"Your Api key",
         "mail":"Your mail",
-        "hello":"Hello"
+        "hello":"Hello username from platform",
+        "notify":"Notify me...",
+        "metrics":"Usage metrics"
+    },
+    "notifier":{
+        "title":"Notify me new review's of:",
+        "content":"Content title id",
+        "link":"Url to be executed to notify me",
+        "phcontent":"Title id",
+        "phlink":"Url",
+        "close":"Close",
+        "save":"Subscribe",
+        "good":"You have successfully subscribed!",
+        "bad":"Something has gone wrong, try again"
+    },
+    "metrics":{
+        "title": "Metrics",
+        "value":"Amount",
+        "addReview": "Reviews added",
+        "rate": "Ratings",
+        "report": "Reports",
+        "search":"Reviews searched",
+        "contentSearch":"Content Search"
     }
 }

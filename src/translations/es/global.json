@@ -18,7 +18,8 @@
         "passwordConfirm": "Repita su contraseña",
         "register": "Ya tiene una cuenta?",
         "enter": "Registrarse",
-        "platform": "Ingrese una plataforma"
+        "platform": "Ingrese una plataforma",
+        "registerError": "Email, usuario o plataforma ya registrados."
     },
     "validations": {
         "email": {
@@ -42,6 +43,15 @@
         },
         "platform": {
             "required": "La plataforma es requerida"
+        },
+        "notifier":{
+            "titleId":{
+                "required":"El titulo identificador es requerido"
+            },
+            "url":{
+                "required":"El enlace es requerido",
+                "matches":"Escriba un enlace valido"
+            }
         }
     },
     "home":{
@@ -49,6 +59,29 @@
         "showme":"Ver",
         "apikey":"Tu Api key",
         "mail":"Tu email",
-        "hello":"Hola"
+        "hello":"Hola username de platform",
+        "notify":"Notificarme...",
+        "metrics":"Metricas de uso"
+    },
+    "notifier":{
+        "title":"Notificarme nuevas reseñas de:",
+        "content":"Titulo identificador del contenido",
+        "link":"Enlace que desea que se ejecute para ser notificado",
+        "phcontent":"Title ID",
+        "phlink":"Enlace",
+        "close":"Cerrar",
+        "save":"Suscribirse",
+        "good":"Te has suscripto exitosamente!",
+        "bad":"Algo ha salido mal, intenta nuevamente"
+    },
+    "metrics":{
+        "title":"Metricas",
+        "value":"Cantidad",
+        "addReview":"Reviews Agregadas",
+        "rate":"Calificaciones",
+        "report":"Reportes",
+        "search":"Busquedas de reviews",
+        "contentSearch":"Busquedas de contenidos"
     }
+
 }

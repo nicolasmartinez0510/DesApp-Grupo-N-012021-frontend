@@ -15,3 +15,19 @@ NOTES:
 
 KNOWN ISSUES:
 * -
+
+------------------------------------------------------------------------------------
+TAG ENTREGA 3.0
+------------------------------------------------------------------------------------
+NEW FEATURES:
+ * space for subscribe to new review´s notifications.
+ * responsive web design.
+ * space for view api metrics.
+ * build frontend.
+ * data validation in space for subscribe to new review´s.
+
+NOTES:
+* -
+
+KNOWN ISSUES:
+* -

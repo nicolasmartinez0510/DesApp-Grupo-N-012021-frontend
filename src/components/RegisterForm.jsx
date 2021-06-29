@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik } from "formik";
 import * as Yup from 'yup'
 import { Link, useHistory } from 'react-router-dom';
@@ -10,6 +10,7 @@ import * as Api from './ApiRest'
 export default function RegisterForm() {
     const history = useHistory();
     const [t, i18n] = useTranslation("global")
+    const [error, setError] = useState('');
 
     useEffect(() => {
         document.body.style = "background-image: var(--img-background-home);" +
@@ -35,7 +36,7 @@ export default function RegisterForm() {
                                         }
                                     }
                                 )
-                                .catch(() => "Boom")
+                                .catch(() => setError(t("register.registerError")))
                             setSubmitting(false);
                         }, 500);
                 }}
@@ -156,6 +157,7 @@ export default function RegisterForm() {
                             </div>
                             <div className="p-2" />
                             <Link to='/user/login'> {t("register.register")}</Link>
+                            {error && <small className="font-weight-bolder alert alert-danger">{error}</small>}
                             <button type="submit" className="btn btn-info m-4" disabled={isSubmitting}>
                                 {t("register.enter")}
                             </button>
@@ -167,3 +169,5 @@ export default function RegisterForm() {
 
     );
 }
+
+
